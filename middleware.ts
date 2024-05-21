@@ -6,6 +6,9 @@ import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 // const isAdminRoute = createRouteMatcher(['/admin(.*)']);
 const isDefaultRoute = createRouteMatcher(['/']);
 
+// * We don't need to add public routes due to the new update in clerk
+// const uploadThingRoute = createRouteMatcher(['/api/uploadthing(.*)']);
+
 export default clerkMiddleware((auth, req) => {
     // Restrict admin route to users with specific role
     // if (isAdminRoute(req)) auth().protect({ role: 'org:admin' });
@@ -15,6 +18,7 @@ export default clerkMiddleware((auth, req) => {
 
     // Restrict / Route
     if (isDefaultRoute(req)) auth().protect();
+    // if(uploadThingRoute(req)) auth().;
 });
 
 export const config = {
