@@ -9,7 +9,17 @@ const isDefaultRoute = createRouteMatcher(['/']);
 // * We don't need to add public routes due to the new update in clerk
 // const uploadThingRoute = createRouteMatcher(['/api/uploadthing(.*)']);
 
+const isPublicRoute = createRouteMatcher(['/sign-in(.*)', '/sign-up(.*)', '/api/uploadthing'])
+const isserverRoute = createRouteMatcher(['/server(.*)'])
+
 export default clerkMiddleware((auth, req) => {
+
+    // if (!isPublicRoute(req)) {
+    //     auth().protect()
+    // }
+
+    if(isserverRoute(req)) auth().protect()
+
     // Restrict admin route to users with specific role
     // if (isAdminRoute(req)) auth().protect({ role: 'org:admin' });
 
