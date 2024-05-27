@@ -32,6 +32,13 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      colors:{
+        // primary: '#000000', // Black
+        // secondary: '#FF6347', // Tomato
+        // accent: '#4B0082', // Indigo
+        // neutral: '#f5f5f5', // Very light gray
+        muted: '#6c757d', // Muted gray
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
